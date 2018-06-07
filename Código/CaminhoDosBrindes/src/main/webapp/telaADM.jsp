@@ -59,7 +59,17 @@
             
           <li><a href="ListarProdutos"><font color="yellow"><span class="glyphicon glyphicon-list-alt"></span> Listar Produtos</font></a><li>
        </ul></li>
-       <li><a href="inicio.jsp"><font color="yellow"><span class="glyphicon glyphicon-log-out"></span> Sair</font></a></li>
+        <ul class="nav navbar-nav navbar-right">
+           <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="yellow"> <%= session.getAttribute( "adm_nome" ) %></font>
+        <span class="caret"></span></a>
+         <ul class="dropdown-menu">
+            
+             
+            <li><a href="Logout"><font color="yellow"><span class="glyphicon glyphicon-log-out"></span>Sair</font></a></li></ul></li>
+      
+      
+    </ul>
      
     </ul>
   </div>

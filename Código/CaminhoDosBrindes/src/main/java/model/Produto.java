@@ -114,8 +114,7 @@ public class Produto implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "produto")
     private Pedido pedido;
    
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "produto")
-    private Administrador administrador;
+    
     
     @JoinColumn(name = "Produto_Promocao", referencedColumnName = "ID_Promocao")
     @ManyToOne
@@ -256,13 +255,7 @@ public class Produto implements Serializable {
         this.pedido = pedido;
     }
 
-    public Administrador getAdministrador() {
-        return administrador;
-    }
-
-    public void setAdministrador(Administrador administrador) {
-        this.administrador = administrador;
-    }
+  
 
     public Promocao getProdutoPromocao() {
         return produtoPromocao;

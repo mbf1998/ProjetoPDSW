@@ -46,13 +46,11 @@ public class LogoutServlet extends HttpServlet {
        
          response.setContentType("text/html");  
             PrintWriter out=response.getWriter();  
-              
-            out.print("<script>");
-            out.print("alert ('Você foi desconectado !')");
-            out.print("</script>");
+             HttpSession session = request.getSession();   
+            
             response.sendRedirect("inicio.jsp");  
               
-            HttpSession session=request.getSession();  
+         
             session.invalidate();  
               
             

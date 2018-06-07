@@ -47,18 +47,18 @@
   </div>
 </nav>
         <br><br>
-        <form action="loginServlet" method="post">
+        <form action="LoginServlet" method="post">
             <div class="container">
   <div class="form-group">
-    <label for="usuario">Nome de Usuário</label>
-    <input type="email" class="form-control" id="usuario">
-  </div>
-  <div class="form-group">
-    <label for="senha">Senha : </label>
-    <input type="password" class="form-control" id="senha">
-  </div>
+    <label for="Login_cliente">Nome de Usuário:</label>
+    <input  name="Login_cliente" type="text" class="form-control" id="Login_cliente">
+  </div> 
+    <div class="form-group">
+    <label for="Senha_cliente">Senha:</label>
+    <input name="Senha_cliente" type="password" class="form-control" id="Senha_cliente">
+          </div><br>
  
-                <button type="submit" class="btn btn-default">Submit</button></div>
+                <button type="submit" class="btn btn-default">Logar</button></div>
 </form>
         
         

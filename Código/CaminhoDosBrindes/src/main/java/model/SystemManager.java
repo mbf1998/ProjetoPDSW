@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
+import javax.persistence.NoResultException;
 public class SystemManager {
 
     public EntityManager getEM(){
@@ -124,6 +125,49 @@ public List<Produto> findAll() throws Exception{
             
             return listProd;    
 }
+public Cliente Login(String login, String senha) throws Exception {
+    EntityManager em = getEM();
+    try {
+       
+        Cliente cli =em
+                   .createQuery(
+                               "SELECT c FROM Cliente c where c.login = :Login and c.senha = :Senha ", Cliente.class)
+                   .setParameter("Login", login)
+                   .setParameter("Senha", senha).getSingleResult();
+  if(cli==null){
+              throw new Exception  ("Erro ao procurar") ;  
+              
+          }
+        return cli;
+        
+  } catch (NoResultException e) {
+        return null;
+  }
+    finally{
+        em.close();
+    }
+}
+public Administrador LoginADM(String login, String senha) throws Exception {
+   EntityManager em = getEM();
+   try{
+       Administrador adm =  em.createQuery(
+                               "SELECT c FROM Administrador c where c.loginAdministrador = :Login and c.senhaAdministrador = :Senha ", Administrador.class)
+                   .setParameter("Login", login)
+                   .setParameter("Senha", senha).getSingleResult();
+  if(adm==null){
+              throw new Exception  ("Erro ao procurar") ;  
+              
+          }
+        return adm;
+        
+  } catch (NoResultException e) {
+        return null;
+  }
+    finally{
+        em.close();
+    }
+   
+}
 public List<Cliente> findAllCliente() throws Exception{
     EntityManager em = getEM();
      List<Cliente> listClie;
@@ -154,17 +198,23 @@ public Produto editar (int i){
     }
     return cliente;
 }
-public Cliente edita (int i){
+public Cliente edita (String Nome,String login){
     EntityManager em = getEM();
  Cliente cliente =null;
     try{
-    em.getTransaction().begin();
-     cliente = em.find(Cliente.class, i);
-    em.getTransaction().commit();}
+    Cliente adm =  em.createQuery(
+                               "SELECT c FROM Cliente c where c.email = :Login and c.nome = :Senha ", Cliente.class)
+                   .setParameter("Login", login)
+                   .setParameter("Senha", Nome).getSingleResult();
+ 
+        return adm;
+        
+  } catch (NoResultException e) {
+        return null;
+  }
     finally{
         em.close();
     }
-    return cliente;
 }
 public Produto AtualizarProd (Produto prod)throws Exception{
          EntityManager em = getEM();

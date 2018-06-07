@@ -51,7 +51,7 @@
     </ul>
       <ul class="nav navbar-nav navbar-right">
       <li><a href="cadastroUsuario.jsp"><span class="glyphicon glyphicon-user"></span><font color="yellow"> Cadastrar</font></a></li>
-      <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span><font color="yellow"> Login</font></a></li>
+      <li><a href="Login.jsp"><span class="glyphicon glyphicon-log-in"></span><font color="yellow"> Login</font></a></li>
     </ul>
   </div>
 </nav>

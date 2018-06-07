@@ -59,9 +59,7 @@ public class Administrador implements Serializable {
     @Column(name = "login_Administrador")
     private String loginAdministrador;
     
-    @JoinColumn(name = "id_Administrador", referencedColumnName = "ID_Produto", insertable = false, updatable = false)
-    @OneToOne(optional = false)
-    private Produto produto;
+    
 
     public Administrador() {
     }
@@ -118,13 +116,7 @@ public class Administrador implements Serializable {
         this.loginAdministrador = loginAdministrador;
     }
 
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
+   
 
     @Override
     public int hashCode() {

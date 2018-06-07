@@ -11,6 +11,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Administrador;
+import model.Cliente;
+import model.SystemManager;
 
 /**
  *
@@ -29,19 +33,7 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -53,24 +45,41 @@ public class LoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        HttpSession session = request.getSession(); 
+        
+
+         PrintWriter out = response.getWriter();
+        System.out.println("CHAMEI O SERVLET");
+        Cliente cliente = new Cliente();
+        Administrador adm = new Administrador();
+        SystemManager em = new SystemManager();
+        
+        String login = request.getParameter("Login_cliente");
+        String senha = request.getParameter("Senha_cliente");
+         try {
+            cliente = em.Login(login, senha);
+            if(cliente==null){
+                adm = em.LoginADM(login, senha);
+                session.setAttribute("adm_nome",adm.getNomeAdministrador()); 
+                session.setAttribute("adm_id",adm.getIdAdministrador()); 
+                response.sendRedirect("telaADM.jsp");
+                if(adm==null){
+                out.print("ERROR");
+                out.close();}
+            }
+            session.setAttribute("cliente",cliente);
+             session.setAttribute("nome",cliente.getNome());
+          System.out.println(cliente);
+            response.sendRedirect("telaUS.jsp");
+        } catch (Exception ex) {
+            System.out.println("DEU ERRO"+ex);
+        }
     }
 
     /**

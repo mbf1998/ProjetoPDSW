@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
 import model.Produto;
 import model.SystemManager;
-
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author Nome
@@ -47,10 +47,11 @@ public class EditUsuario extends HttpServlet {
          // String id = request.getParameter("id");
        SystemManager em = new SystemManager();
       // int i = Integer.parseInt(id);
-       int i = 1;
-       Cliente p = new Cliente();
-       p=em.edita(i);
-       request.setAttribute("cliente", p);
+       HttpSession session = request.getSession(); 
+      PrintWriter out = response.getWriter();
+    Cliente c = (Cliente) session.getAttribute("cliente"); // dai faço o que quiser e depois devolvo
+    session.setAttribute("cliente",c);
+       
         request.getRequestDispatcher("editarUsuario.jsp").forward(request,response);
     }
 
@@ -65,34 +66,24 @@ public class EditUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         Cliente cliente = new Cliente();
+         HttpSession session = request.getSession(); 
+         Cliente cliente = (Cliente) session.getAttribute("cliente");
         SystemManager em = new SystemManager();
-        String nome = request.getParameter("Nome_cliente");
-        String email = request.getParameter("Email_cliente");
-        String login = request.getParameter("Login_cliente");
-        String senha = request.getParameter("Senha_cliente");
-        String sobrenome = request.getParameter("Sobrenome_cliente");
-        String bairro = request.getParameter("Bairro_cliente");
-        String cidade = request.getParameter("Cidade_cliente");
-        String c = request.getParameter("Cep_cliente");       
-        String telefone = request.getParameter("Telefone_cliente");
-        String celular = request.getParameter("Celular_cliente");
-         String id = request.getParameter("id");
-        int i = Integer.parseInt(id);
-        cliente.setUserID(i);
-        cliente.setBairroUsuario(bairro);
-        cliente.setCelularUsuario(celular);
-        cliente.setCepUsuario(c);
-        cliente.setEmail(email);
-        cliente.setLogin(login);
-        cliente.setNome(nome);
-        cliente.setSobrenomeUsuario(sobrenome);
-        cliente.setTelefoneUsuario(telefone);
-        cliente.setSenha(senha);
-        cliente.setCidadeUsuario(cidade);
+        cliente.setNome( request.getParameter("Nome_cliente"));
+        cliente.setEmail(request.getParameter("Email_cliente"));
+        cliente.setLogin(request.getParameter("Login_cliente"));
+        cliente.setSenha(request.getParameter("Senha_cliente"));
+        cliente.setSobrenomeUsuario(request.getParameter("Sobrenome_cliente"));
+        cliente.setBairroUsuario(request.getParameter("Bairro_cliente"));
+        cliente.setCidadeUsuario( request.getParameter("Cidade_cliente"));
+        cliente.setCepUsuario(request.getParameter("Cep_cliente"));       
+        cliente.setTelefoneUsuario(request.getParameter("Telefone_cliente"));
+        cliente.setCelularUsuario(request.getParameter("Celular_cliente"));
+        PrintWriter out = response.getWriter();
+     
         try {
             cliente = em.Salvar(cliente);
-            
+            out.print("<script>alert('Seu cadastro foi atualizado, por favor, faça o login de novo');</script>");
             response.sendRedirect("inicio.jsp");
         } catch (Exception ex) {
             System.out.println("DEU ERRO"+ex);

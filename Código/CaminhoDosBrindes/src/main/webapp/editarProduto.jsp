@@ -62,7 +62,7 @@
            
           <li><a href="ListarProdutos"><font color="yellow"><span class="glyphicon glyphicon-list-alt"></span> Listar Produtos</font></a><li>
       </ul></li>
-       <li><a href="inicio.jsp"><font color="yellow"><span class="glyphicon glyphicon-log-out"></span> Sair</font></a></li>
+       <li><a href="Logout"><font color="yellow"><span class="glyphicon glyphicon-log-out"></span> Sair</font></a></li>
      
     </ul>
   </div>

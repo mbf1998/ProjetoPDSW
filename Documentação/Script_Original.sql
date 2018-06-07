@@ -147,12 +147,9 @@ CREATE TABLE IF NOT EXISTS `caminhodosbrindes`.`TB_Administrador` (
   `email_Administrador` VARCHAR(45) NOT NULL,
   `senha_Administrador` VARCHAR(45) NOT NULL,
   `login_Administrador` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_Administrador`),
-  CONSTRAINT `id_criacao`
-    FOREIGN KEY (`id_Administrador`)
-    REFERENCES `caminhodosbrindes`.`TB_Produto` (`ID_Produto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id_Administrador`))
+  
+    
 ENGINE = InnoDB;
 
 
