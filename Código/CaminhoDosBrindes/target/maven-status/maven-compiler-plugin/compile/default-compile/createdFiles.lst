@@ -10,11 +10,14 @@ model\Pedido_.class
 controller\AdicionarUsuario.class
 controller\ReadUsuario.class
 model\Administrador_.class
+controller\EditPromocao.class
 controller\LoginServlet.class
 controller\ListarProdutos.class
+controller\AdicionarPromocao.class
 controller\AdicionarProduto.class
 controller\ReadProd.class
 model\Pedido.class
+controller\DeletePromocao.class
 controller\EditUsuario.class
 model\SystemManager.class
 model\Administrador.class

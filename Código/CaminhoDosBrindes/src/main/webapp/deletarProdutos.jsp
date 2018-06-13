@@ -29,7 +29,7 @@
       <a class="navbar-brand" href="inicio.jsp"><font color="yellow">Caminho dos Brindes</font></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="inicio.jsp"><font color="yellow">Home</font></a></li>
+      <li class="active"><a href="telaADM.jsp"><font color="yellow">Home</font></a></li>
      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="yellow">Produtos</font>
         <span class="caret"></span></a>

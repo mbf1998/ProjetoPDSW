@@ -52,6 +52,22 @@
         <servlet-name>ListarUsuarios</servlet-name>
         <servlet-class>controller.ListarUsuarios</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdicionarPromocao</servlet-name>
+        <servlet-class>controller.AdicionarPromocao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarPromocao</servlet-name>
+        <servlet-class>controller.ListarPromocao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletePromocao</servlet-name>
+        <servlet-class>controller.DeletePromocao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditPromocao</servlet-name>
+        <servlet-class>controller.EditPromocao</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdicionarProduto</servlet-name>
         <url-pattern>/AdicionarProduto</url-pattern>
@@ -103,6 +119,22 @@
     <servlet-mapping>
         <servlet-name>ListarUsuarios</servlet-name>
         <url-pattern>/ListarUsuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarPromocao</servlet-name>
+        <url-pattern>/AdicionarPromocao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarPromocao</servlet-name>
+        <url-pattern>/ListarPromocao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletePromocao</servlet-name>
+        <url-pattern>/DeletePromocao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditPromocao</servlet-name>
+        <url-pattern>/EditPromocao</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -30,7 +30,7 @@
       <a class="navbar-brand" href="inicio.jsp"><font color="yellow">Caminho dos Brindes</font></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="inicio.jsp"><font color="yellow">Home</font></a></li>
+      <li class="active"><a href="telaADM.jsp"><font color="yellow">Home</font></a></li>
      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="yellow">Produtos</font>
         <span class="caret"></span></a>
@@ -52,6 +52,11 @@
          <ul class="dropdown-menu">
             <li><a href="ListarUsuarios"><font color="yellow"><span class="glyphicon glyphicon-list-alt"></span> Listar usuários</font></a></li>
             </ul></li>
+            <ul class="dropdown-menu">
+            <li><a href="AdicionarPromocao"><font color="yellow"><span class="glyphicon glyphicon-plus"></span> Adicionar Promoção</font></a><li>
+                 
+          <li><a href="ListarPromocao"><font color="yellow"><span class="glyphicon glyphicon-list-alt"></span> Listar Promoção</font></a><li>
+       </ul>
           <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="yellow">Produtos</font>
         <span class="caret"></span></a>

@@ -62,8 +62,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `caminhodosbrindes`.`TB_Promocao` (
   `ID_Promocao` INT NOT NULL AUTO_INCREMENT,
-  `DataInicio` DATE NOT NULL,
-  `DataFim` DATE NOT NULL,
+  `DataInicio` VARCHAR(50) NOT NULL,
+  `DataFim` VARCHAR(50) NOT NULL,
   `DescontoPreco` FLOAT NOT NULL,
   PRIMARY KEY (`ID_Promocao`))
 ENGINE = InnoDB;

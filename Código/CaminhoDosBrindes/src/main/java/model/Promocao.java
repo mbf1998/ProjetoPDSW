@@ -41,14 +41,14 @@ public class Promocao implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "DataInicio")
-    @Temporal(TemporalType.DATE)
-    private Date dataInicio;
+   
+    private String dataInicio;
  
     @Basic(optional = false)
     @NotNull
     @Column(name = "DataFim")
-    @Temporal(TemporalType.DATE)
-    private Date dataFim;
+    
+    private String dataFim;
   
     @Basic(optional = false)
     @NotNull
@@ -65,7 +65,7 @@ public class Promocao implements Serializable {
         this.iDPromocao = iDPromocao;
     }
 
-    public Promocao(Integer iDPromocao, Date dataInicio, Date dataFim, float descontoPreco) {
+    public Promocao(Integer iDPromocao, String dataInicio, String dataFim, float descontoPreco) {
         this.iDPromocao = iDPromocao;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
@@ -80,19 +80,19 @@ public class Promocao implements Serializable {
         this.iDPromocao = iDPromocao;
     }
 
-    public Date getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 
