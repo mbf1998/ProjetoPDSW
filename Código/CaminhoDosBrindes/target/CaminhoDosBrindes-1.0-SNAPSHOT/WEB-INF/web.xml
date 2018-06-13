@@ -88,6 +88,14 @@
         <servlet-name>todaspromocoes</servlet-name>
         <servlet-class>controller.todaspromocoes</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>telaUS</servlet-name>
+        <servlet-class>controller.telaUS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>telaADM</servlet-name>
+        <servlet-class>controller.telaADM</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdicionarProduto</servlet-name>
         <url-pattern>/AdicionarProduto</url-pattern>
@@ -175,6 +183,14 @@
     <servlet-mapping>
         <servlet-name>todaspromocoes</servlet-name>
         <url-pattern>/todaspromocoes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>telaUS</servlet-name>
+        <url-pattern>/telaUS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>telaADM</servlet-name>
+        <url-pattern>/telaADM</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

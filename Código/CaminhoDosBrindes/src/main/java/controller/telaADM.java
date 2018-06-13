@@ -8,17 +8,19 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import model.Produto;
+import model.SystemManager;
 
 /**
  *
  * @author Nome
  */
-public class LogoutServlet extends HttpServlet {
+public class telaADM extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,7 +31,7 @@ public class LogoutServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-  
+ 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -41,22 +43,22 @@ public class LogoutServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-         response.setContentType("text/html");  
-            PrintWriter out=response.getWriter();  
-             HttpSession session = request.getSession();   
+       SystemManager em = new SystemManager();
+      
+            List<Produto> lista ;
+        try {
+            lista=em.findAll();
+            System.out.println(lista);
             
-            response.sendRedirect("Inicio");  
-              
-         
-            session.invalidate();  
-              
-            
-              
-            out.close();  
-    }  
+            request.setAttribute("lista", lista);
+           
+            request.getRequestDispatcher("telaADM.jsp").forward(request,response);
+        } catch (Exception ex) {
+            System.out.println("ERROR          "+ex);
+        }
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.

@@ -28,57 +28,35 @@
     </head>
     <body>
         
-       <nav class="navbar navbar-inverse">
+     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="inicio.jsp"><font color="yellow">Caminho dos Brindes</font></a>
+      <a class="navbar-brand" href="telaUS"><font color="yellow">Caminho dos Brindes</font></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="telaADM.jsp"><font color="yellow">Home</font></a></li>
-     <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="yellow">Produtos</font>
-        <span class="caret"></span></a>
-         <ul class="dropdown-menu">
-            <li><a href="#"><font color="yellow">Tipos</font></a></li>
-          <li><a href="#"><font color="yellow">Promoção</font></a></li>
-          <li><a href="#"><font color="yellow">Novidades</font></a></li>
+      <li class="active"><a href="telaUS"><font color="yellow">Home</font></a></li>
+   
+          <li><a href="todosprodutos"><font color="yellow">Produtos</font></a></li>
+          <li><a href="todaspromocoes"><font color="yellow">Promoção</font></a></li>
           
-        </ul>
-      </li>
-      <li><a href="#"><font color="yellow">Page 2</font></a></li>
-      <li><a data-toggle="modal" data-target="#myModal"><font color="yellow">Sobre</font></a></li>
-       
+        
+    
+      <li><a  data-toggle="modal" data-target="#myModal"><font color="yellow">Sobre</font></a></li>
     </ul>
       <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="yellow">Usuários</font>
+           <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="yellow"> <%= session.getAttribute( "nome" ) %></font>
         <span class="caret"></span></a>
          <ul class="dropdown-menu">
-            <li><a href="ListarUsuarios"><font color="yellow"><span class="glyphicon glyphicon-list-alt"></span> Listar usuários</font></a></li>
-            </ul></li>
-            <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="yellow">Promoção</font>
-        <span class="caret"></span></a>
-         <ul class="dropdown-menu">
-            <li><a href="AdicionarPromocao"><font color="yellow"><span class="glyphicon glyphicon-plus"></span> Adicionar Promoção</font></a><li>
-                 
-          <li><a href="ListarPromocao"><font color="yellow"><span class="glyphicon glyphicon-list-alt"></span> Listar Promoção</font></a><li>
-       </ul></li>
             
-          <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><font color="yellow">Produtos</font>
-        <span class="caret"></span></a>
-         <ul class="dropdown-menu">
-             <li><a href="cadastroProdutos.jsp"><font color="yellow"><span class="glyphicon glyphicon-plus"></span> Cadastrar Produtos</font></a><li>
-            
-          <li><a href="ListarProdutos"><font color="yellow"><span class="glyphicon glyphicon-list-alt"></span> Listar Produtos</font></a><li>
-</ul></li>
-          
-       <li><a href="Logout"><font color="yellow"><span class="glyphicon glyphicon-log-out"></span> Sair</font></a></li>
-     
+             <li><a href="EditUsuario"><font color="yellow"><span class="glyphicon glyphicon-user"></span> Editar Usuario</font></a><li>
+            <li><a href=minhasCompras.jsp"><font color="yellow"><span class="glyphicon glyphicon-shopping-cart"></span> Minhas Compras</font></a></li>
+            <li><a href="Logout"><font color="yellow"><span class="glyphicon glyphicon-log-out"></span>Logout</font></a></li></ul></li>
+      
+      
     </ul>
   </div>
-       </nav>
+</nav>
     
     
     

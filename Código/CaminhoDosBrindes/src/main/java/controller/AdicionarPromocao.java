@@ -112,7 +112,7 @@ public class AdicionarPromocao extends HttpServlet {
             p = em.ProcurarProdComPromocao(i);
             p.setProdutoPromocao(pro);
             em.AtualizarProd(p);
-            response.sendRedirect("telaADM.jsp");
+            response.sendRedirect("telaADM");
         } catch (Exception ex) {
            System.out.println(ex);
         }

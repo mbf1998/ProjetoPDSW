@@ -46,14 +46,24 @@ public class todaspromocoes extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          SystemManager em = new SystemManager();
-        List<Produto> lista ;
-        List<Promocao>lista02;
+      
+            List<Produto> lista ;
+            List<Promocao> lista02;
+            
+            int i=0;
+            
         try {
-            lista=em.findAll();
-            lista02= em.findAllPromocao();
+            lista=em.ProcurarProdList();
+            lista02=em.findAllPromocao();
+            System.out.println(lista02);
+            for(i=0;i<lista.size();i++){
+                float precoInicial = lista.get(i).getPreco();
+                float precoFinal = lista02.get(i).getDescontoPreco();
+                precoInicial = precoInicial - precoFinal;
+                lista.get(i).setPreco(precoInicial);
+            }
            
             request.setAttribute("lista", lista);
-            request.setAttribute("lista02", lista02);
             request.getRequestDispatcher("TodasPromocoes.jsp").forward(request,response);
         } catch (Exception ex) {
             System.out.println("ERROR          "+ex);

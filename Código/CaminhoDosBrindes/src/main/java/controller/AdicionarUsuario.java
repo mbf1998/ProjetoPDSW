@@ -71,7 +71,7 @@ public class AdicionarUsuario extends HttpServlet {
              out.print("<script>");
             out.print("alert ('Bem Vindo Usuário !')");
             out.print("</script>");
-            response.sendRedirect("telaUS.jsp");
+            response.sendRedirect("telaUS");
         } catch (Exception ex) {
             System.out.println("DEU ERRO"+ex);
         }

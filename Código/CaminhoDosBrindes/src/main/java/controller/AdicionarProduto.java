@@ -138,7 +138,7 @@ public class AdicionarProduto extends HttpServlet {
            
             em.SalvarProd(produto);
          
-            response.sendRedirect("telaADM.jsp");
+            response.sendRedirect("telaADM");
         } catch (Exception ex) {
             System.out.println("Erro"+ex);
         }

@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Administrador;
-import model.Cliente;
+import model.Produto;
 import model.SystemManager;
 
 /**
  *
  * @author Nome
  */
-public class LoginServlet extends HttpServlet {
+public class telaUS extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,10 +31,7 @@ public class LoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -45,42 +42,38 @@ public class LoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-
-    
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        HttpSession session = request.getSession(); 
         
-
-         PrintWriter out = response.getWriter();
-        System.out.println("CHAMEI O SERVLET");
-        Cliente cliente = new Cliente();
-        Administrador adm = new Administrador();
-        SystemManager em = new SystemManager();
-        
-        String login = request.getParameter("Login_cliente");
-        String senha = request.getParameter("Senha_cliente");
-         try {
-            cliente = em.Login(login, senha);
-            if(cliente==null){
-                adm = em.LoginADM(login, senha);
-                session.setAttribute("adm_nome",adm.getNomeAdministrador()); 
-                session.setAttribute("adm_id",adm.getIdAdministrador()); 
-                response.sendRedirect("telaADM");
-                if(adm==null){
-                out.print("ERROR");
-                out.close();}
-            }
-            session.setAttribute("cliente",cliente);
-             session.setAttribute("nome",cliente.getNome());
-          System.out.println(cliente);
-            response.sendRedirect("telaUS");
+           SystemManager em = new SystemManager();
+      
+            List<Produto> lista ;
+        try {
+            lista=em.findAll();
+            System.out.println(lista.get(0).getImage01());
+            int fim = lista.size();
+            System.out.println(fim);
+            int inicio = fim - 3;
+            System.out.println(inicio);
+            request.setAttribute("lista", lista);
+            request.setAttribute("fim", fim);
+            request.setAttribute("inicio", inicio);
+            request.getRequestDispatcher("telaUS.jsp").forward(request,response);
         } catch (Exception ex) {
-            System.out.println("DEU ERRO"+ex);
+            System.out.println("ERROR          "+ex);
         }
     }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    
 
     /**
      * Returns a short description of the servlet.

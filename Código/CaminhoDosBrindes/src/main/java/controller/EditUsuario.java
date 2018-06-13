@@ -84,7 +84,7 @@ public class EditUsuario extends HttpServlet {
         try {
             cliente = em.Salvar(cliente);
             out.print("<script>alert('Seu cadastro foi atualizado, por favor, faça o login de novo');</script>");
-            response.sendRedirect("inicio.jsp");
+            response.sendRedirect("telaUS");
         } catch (Exception ex) {
             System.out.println("DEU ERRO"+ex);
         }

@@ -199,12 +199,34 @@ public List<Promocao> findAllPromocao() throws Exception{
             
             return listClie;    
 }
+
 public List<Produto> ProcurarProd(int id) throws Exception {
    EntityManager em = getEM();
    try{
        List<Produto> adm =  em.createQuery(
                                "SELECT c FROM Produto c where c.IDProduto = :Login", Produto.class)
                    .setParameter("Login", id).getResultList();
+                   
+  if(adm==null){
+              throw new Exception  ("Erro ao procurar") ;  
+              
+          }
+        return adm;
+        
+  } catch (NoResultException e) {
+        return null;
+  }
+    finally{
+        em.close();
+    }
+   
+}
+public List<Produto> ProcurarProdList() throws Exception {
+   EntityManager em = getEM();
+   try{
+       List<Produto> adm =  em.createQuery(
+                               "SELECT c FROM Produto c where c.produtoPromocao IS NOT NULL", Produto.class)
+                 .getResultList();
                    
   if(adm==null){
               throw new Exception  ("Erro ao procurar") ;  
@@ -241,6 +263,7 @@ public Produto ProcurarProdComPromocao(int id) throws Exception {
     }
    
 }
+
 public Promocao ProcurarPromocaoPelaData(String id, String f) throws Exception {
    EntityManager em = getEM();
    try{
