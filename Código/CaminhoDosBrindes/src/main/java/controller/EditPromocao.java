@@ -9,6 +9,8 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -47,12 +49,20 @@ public class EditPromocao extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
+        String inicio = request.getParameter("inicio");
+        String fim =request.getParameter("fim");
        SystemManager em = new SystemManager();
-       int i = Integer.parseInt(id);
+       Produto pr = new Produto();
        Promocao p = new Promocao();
-       p=em.editarPro(i);
+        try {
+            p=em.ProcurarPromocaoPelaData(inicio, fim);
+            System.out.println(p);
+           request.setAttribute("produto", p);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
        request.setAttribute("produto", p);
+      
         request.getRequestDispatcher("editarPromocao.jsp").forward(request,response);
       
     }
@@ -72,20 +82,9 @@ public class EditPromocao extends HttpServlet {
        Promocao pro = new Promocao();
        List<Produto> produtos;
        Produto p = new Produto();
-       String idProduto = request.getParameter("produtos");
-       int i = Integer.parseInt(idProduto);
+      
        
-       System.out.println(i);
-        try {
-            
-            produtos = em.ProcurarProd(i);
-        
-            pro.setProdutoCollection(produtos);
-            
-         
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
+     
        String dataInicio = request.getParameter("inicio");
         String dataFim = request.getParameter("fim");
         

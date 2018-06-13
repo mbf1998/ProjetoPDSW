@@ -83,7 +83,7 @@
     
         <br>
         <div class="container">
-            <h3 align="center"><b> Lista de Produtos (Escolha apenas 1 produto)</b><h3><br><br>
+            <h3 align="center"><b> Editar Promoção</b><h3><br><br>
                     
                     
                     <div id="myModal" class="modal fade" role="dialog">
@@ -114,46 +114,18 @@
         </div>
     <div class="container">
         <form action ="EditPromocao" method="post">
-        <div class="table-responsive" >          
-  <table class="table"   style="width: 100%" CELLPADDING="8" border="1" >
-    <thead>
-      <tr>
-        <th style="padding: 15px">Selecionar</th>
-        <th style="padding: 15px">Nome</th>
-        <th style="padding: 15px">Altura (Metros)</th>
-        <th style="padding: 15px">Largura (Metros)</th>
-        <th style="padding: 15px">Quantidade</th>
-        <th style="padding: 15px">Tipo</th>
-        <th style="padding: 15px">Preço</th>
         
-      </tr>
-    </thead>
-    <tbody>
-        <c:forEach items="${lista}" var="produto">
-      <tr>
-        <td><input type="checkbox" name="produtos" value="${produto.IDProduto}"><br></td>
-        <td><c:out value="${produto.nome}"/></td>
-        <td><c:out value="${produto.tamanhoAltura}"/></td>
-        <td><c:out value="${produto.tamanhoLargura}"/></td>
-        <td><c:out value="${produto.quantidade}"/></td>
-        <td><c:out value="${produto.tipo}"/></td>
-        <td><c:out value="${produto.preco}"/></td>
-         
-      </tr> </c:forEach>
-    </tbody>
-  </table>
-   </div>
     
             <br><br>
     Data inicio
-  <input type="date" name="inicio">
+  <input type="date" name="inicio" value="${produto.dataInicio}">
     
     Data fim:
-  <input type="date" name="fim">
+  <input type="date" name="fim" value="${produto.dataFim}">
   <br><br>
   <div class="form-group">
     <label for="preco">Preço do desconto:</label>
-    <input name="preco" type="float" class="form-control" id="preco">
+    <input name="preco" type="float" class="form-control" id="preco" value="${produto.descontoPreco}">
   </div> 
     
   <button type="submit" class="btn btn-success">Cadastrar</button></form></div>

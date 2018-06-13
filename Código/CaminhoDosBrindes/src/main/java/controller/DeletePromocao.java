@@ -8,10 +8,13 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Promocao;
 import model.SystemManager;
 
 /**
@@ -43,12 +46,20 @@ public class DeletePromocao extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
+        String inicio = request.getParameter("inicio");
+        String fim =request.getParameter("fim");
        SystemManager em = new SystemManager();
-       int i = Integer.parseInt(id);
+       Promocao p = new Promocao();
+        try {
+            p = em.ProcurarPromocaoPelaData(inicio, fim);
+             int i = p.getIDPromocao();
        em.deletarpromocao(i);
         response.sendRedirect("ListarPromocao");  
        response.setIntHeader("Refresh", 5);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+      
     }
 
     /**

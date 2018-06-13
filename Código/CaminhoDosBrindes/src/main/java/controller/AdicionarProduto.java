@@ -5,6 +5,8 @@
  */
 package controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import model.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -73,19 +75,22 @@ public class AdicionarProduto extends HttpServlet {
         String preco = request.getParameter("preco_produto");
        
         byte[] i1 = image1.getBytes();
+        
         String image01=Base64.getEncoder().encodeToString(i1);
         String imagem01 = "data:image/jpeg;base64,"+image01;
-        
+       System.out.println(imagem01);
         
         byte[] i2 =image2.getBytes();
         String image02=Base64.getEncoder().encodeToString(i2);
         String imagem02 =  "data:image/jpeg;base64,"+image02;
-        
+         System.out.println(imagem02);
         if(image3!=null && image4!=null && image5!=null){
         byte[] i3 =image3.getBytes();
         String image03=Base64.getEncoder().encodeToString(i3);
          String imagem03 =  "data:image/jpeg;base64,"+image03;
         produto.setImage03(imagem03);
+      
+		
        
         byte[] i4 =image4.getBytes();
         String im04=Base64.getEncoder().encodeToString(i4);

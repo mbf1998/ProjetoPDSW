@@ -7,7 +7,7 @@ import model.Cartaodecredito;
 import model.Cliente;
 import model.Produto;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-06-12T22:28:23")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-06-13T09:15:23")
 @StaticMetamodel(Pedido.class)
 public class Pedido_ { 
 

@@ -224,8 +224,29 @@ public Produto ProcurarProdComPromocao(int id) throws Exception {
    EntityManager em = getEM();
    try{
       Produto adm =  em.createQuery(
-                               "SELECT c FROM Produto c where c.IDProduto = :Login", Produto.class)
+                               "SELECT c FROM Produto c where c.produtoPromocao = :Login", Produto.class)
                    .setParameter("Login", id).getSingleResult();
+                   
+  if(adm==null){
+              throw new Exception  ("Erro ao procurar") ;  
+              
+          }
+        return adm;
+        
+  } catch (NoResultException e) {
+        return null;
+  }
+    finally{
+        em.close();
+    }
+   
+}
+public Promocao ProcurarPromocaoPelaData(String id, String f) throws Exception {
+   EntityManager em = getEM();
+   try{
+      Promocao adm =  em.createQuery(
+                               "SELECT c FROM Promocao c where c.dataInicio = :Login and c.dataFim = :Senha", Promocao.class)
+                   .setParameter("Login", id).setParameter("Senha", f).getSingleResult();
                    
   if(adm==null){
               throw new Exception  ("Erro ao procurar") ;  
@@ -315,6 +336,7 @@ public Promocao editarPro (int i){
     }
     return cliente;
 }
+
 
 public Cliente edita (String Nome,String login){
     EntityManager em = getEM();

@@ -111,7 +111,7 @@
   <table class="table"   style="width: 100%" CELLPADDING="8" border="1" >
     <thead>
       <tr>
-        <th style="padding: 15px">ID</th>
+        
         <th style="padding: 15px">Data Inicio</th>
         <th style="padding: 15px">Data Fim</th>
         <th style="padding: 15px">Desconto (R$) </th>
@@ -124,15 +124,15 @@
         <c:forEach items="${lista}" var="pro">
       <tr>
           
-        <td><c:out value="${pro.iDPromocao}"/></td>
+        
         <td><c:out value="${pro.dataInicio}"/></td>
         <td><c:out value="${pro.dataFim}"/></td>
         <td><c:out value="${pro.descontoPreco}"/></td>
       
                 
 
-           <td><a href="EditProduto?promocao=${pro.iDPromocao}"/>Editar</a></td>
-        <td><a href="DeleteProduto?promocao=${pro.iDPromocao}"/>Deletar</a></td>
+           <td><a href="EditPromocao?inicio=${pro.dataInicio}&fim=${pro.dataFim}"/>Editar</a></td>
+        <td><a href="DeletePromocao?inicio=${pro.dataInicio}&fim=${pro.dataFim}"/>Deletar</a></td>
         
       </tr> </c:forEach>
     </tbody>

@@ -68,6 +68,26 @@
         <servlet-name>EditPromocao</servlet-name>
         <servlet-class>controller.EditPromocao</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Inicio</servlet-name>
+        <servlet-class>controller.Inicio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VisualizaProduto</servlet-name>
+        <servlet-class>controller.VisualizaProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>todosprodutos</servlet-name>
+        <servlet-class>controller.todosprodutos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>todasnovidades</servlet-name>
+        <servlet-class>controller.todasnovidades</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>todaspromocoes</servlet-name>
+        <servlet-class>controller.todaspromocoes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdicionarProduto</servlet-name>
         <url-pattern>/AdicionarProduto</url-pattern>
@@ -135,6 +155,26 @@
     <servlet-mapping>
         <servlet-name>EditPromocao</servlet-name>
         <url-pattern>/EditPromocao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Inicio</servlet-name>
+        <url-pattern>/Inicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VisualizaProduto</servlet-name>
+        <url-pattern>/VisualizaProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>todosprodutos</servlet-name>
+        <url-pattern>/todosprodutos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>todasnovidades</servlet-name>
+        <url-pattern>/todasnovidades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>todaspromocoes</servlet-name>
+        <url-pattern>/todaspromocoes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
